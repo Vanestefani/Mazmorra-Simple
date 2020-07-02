@@ -8,7 +8,7 @@ var altoF = 50;
 var muro = '#044f14';
 var puerta = '#3a1700';
 var tierra = '#c6892f';
-var llave = '#c6bc00';
+var llave = '#eff542';
 
 var protagonista;
 
@@ -20,8 +20,8 @@ var escenario = [
   [0,0,2,2,2,0,0,2,0,0,0,2,0,0,0],
   [0,2,2,0,0,0,0,2,0,0,0,2,0,0,0],
   [0,0,2,0,0,0,2,2,2,0,0,2,2,2,0],
-  [0,2,2,2,0,0,2,0,0,0,2,0,0,2,0],
-  [0,2,2,2,0,0,2,0,0,2,2,2,2,2,0],
+  [0,2,2,2,0,0,2,0,0,0,1,0,0,2,0],
+  [0,2,2,3,0,0,2,0,0,2,2,2,2,2,0],
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 ]
 
@@ -48,12 +48,7 @@ function dibujaEscenario(){
     }
   }
 
-
 }
-
-
-
-
 
 //OBJETO JUGADOR
 var jugador = function(){
@@ -62,12 +57,10 @@ var jugador = function(){
 
   this.color = '#820c01';
 
-
   this.dibuja = function(){
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x*anchoF,this.y*altoF,anchoF,altoF);
   }
-
 
   this.margenes = function(x,y){
     var colision = false;
@@ -79,13 +72,10 @@ var jugador = function(){
     return(colision);
   }
 
-
-
   this.arriba = function(){
     if(this.margenes(this.x, this.y-1)==false)
       this.y--;
   }
-
 
   this.abajo = function(){
     if(this.margenes(this.x, this.y+1)==false)
@@ -103,11 +93,6 @@ var jugador = function(){
   }
 
 }
-
-
-
-
-
 
 function inicializa(){
   canvas = document.getElementById('canvas');
@@ -142,12 +127,10 @@ function inicializa(){
   },1000/FPS);
 }
 
-
 function borraCanvas(){
   canvas.width=750;
   canvas.height=500;
 }
-
 
 function principal(){
   borraCanvas();
